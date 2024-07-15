@@ -2,7 +2,7 @@
 
 **M**ultiview d**AT**a  (**MAT**) is a novel watermarking technique based on Multiview data for efficiently embedding watermarks within DNNs. Experiments across various benchmarks demonstrated its efficacy in defending against model extraction attacks.
 
-![image-20240715223746983](C:\Users\Li\AppData\Roaming\Typora\typora-user-images\image-20240715223746983.png)
+![cifar10](cifar10.png)
 
 > [**Not Just Change the Labels, Learn the Features: Watermarking Deep Neural Networks with Multi-View Data**](https://arxiv.org/pdf/2403.10663)            
 > [Yuxuan Li , Sarthak Kumar Maharana, [Yunhui Guo](https://yunhuiguo.github.io/)     
