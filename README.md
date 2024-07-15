@@ -1,3 +1,16 @@
+# Not Just Change the Labels, Learn the Features: Watermarking Deep Neural Networks with Multi-View Data
+
+**M**ultiview d**AT**a  (**MAT**) is a novel watermarking technique based on Multiview data for efficiently embedding watermarks within DNNs. Experiments across various benchmarks demonstrated its efficacy in defending against model extraction attacks.
+
+![image-20240715223746983](C:\Users\Li\AppData\Roaming\Typora\typora-user-images\image-20240715223746983.png)
+
+> [**Not Just Change the Labels, Learn the Features: Watermarking Deep Neural Networks with Multi-View Data**](https://arxiv.org/pdf/2403.10663)            
+> [Yuxuan Li , Sarthak Kumar Maharana, [Yunhui Guo](https://yunhuiguo.github.io/)     
+> Harbin Institute of Technology, UT Dallas          
+> ECCV 2024
+
+[[`arxiv`](https://arxiv.org/pdf/2403.10663)] [[`bibtex`](#citation)] 
+
 ## MAT
 
 First, train a clean model.
@@ -35,21 +48,21 @@ python test.py -m  ./experiments/cifar10_res18_none_100_100_generated_trigger_se
 python test.py -m  ./experiments/cifar10_res18_none_100_100_generated_trigger_set_24000_add_feature_loss_dist_reg_0.01/fineprune/checkpoints/checkpoint_nat_best.pt --pruning
 ```
 
-## Baseline Watermark 
+## Acknowledgement
 
-Train a  watermark model. (base/randomsmooth/minmaxpgd)
+Our project is implemented base on the following projects. We really appreciate their excellent open-source works!
 
-```bash
-CUDA_VISIBLE_DEVICES=0 python train.py -msg minmaxpgd_100_trigger_set_24000  --train-type minmaxpgd --trigger_type only_clean
+* [Margin-based Neural Network Watermarking]([GitHub - matbambbang/margin-based-watermarking: The source codes of the paper 'Margin-based Neural Network Watermarking'](https://github.com/matbambbang/margin-based-watermarking))
+
+## Citation
+
+If our work has been helpful to you, we would greatly appreciate a citation.
+
 ```
-
-Attack the watermark model.
-
-```bash
-CUDA_VISIBLE_DEVICES=0 python extraction.py -msg minmaxpgd_100_trigger_set_24000  --train-type minmaxpgd
+@article{li2024not,
+  title={Not Just Change the Labels, Learn the Features: Watermarking Deep Neural Networks with Multi-View Data},
+  author={Li, Yuxuan and Maharana, Sarthak Kumar and Guo, Yunhui},
+  journal={arXiv preprint arXiv:2403.10663},
+  year={2024}
+}
 ```
-
-Verify.
-
-see the output.log in the folder like "/experiments/cifar10_res18_minmaxpgd_100_minmaxpgd_10
-0_trigger_set_24000/extraction/"
